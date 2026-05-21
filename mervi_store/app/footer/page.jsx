@@ -1,0 +1,179 @@
+"use client";
+
+import { Mail, MapPin, Phone } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+
+
+export default function Footer() {
+    return (
+        <footer
+            className="pt-20 pb-10"
+            style={{ backgroundColor: "#2B2B2B" }}
+        >
+            <div className="max-w-7xl mx-auto px-6">
+
+                {/* ───────────── Top Footer ───────────── */}
+                <div className="grid lg:grid-cols-4 gap-12">
+
+                    {/* Brand + Description */}
+                    <div>
+                        <h2
+                            className="text-3xl font-light tracking-wide"
+                            style={{ color: "#F8F6F2" }}
+                        >
+                            Mervi<span style={{ color: "#7A8B7A" }}>'</span>s
+                        </h2>
+
+                        <p
+                            className="mt-6 text-sm leading-relaxed"
+                            style={{ color: "#D8D3CC" }}
+                        >
+                            Nous proposons des solutions esthétiques pour valoriser
+                            votre image et sublimer vos espaces professionnels et résidentiels.
+                        </p>
+
+                        {/* Social Icons */}
+                        <div className="flex gap-4 mt-6">
+                            {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
+                                <a
+                                    key={i}
+                                    href="#"
+                                    className="p-2 transition-all duration-300"
+                                    style={{
+                                        backgroundColor: "#7A8B7A",
+                                        color: "#F8F6F2",
+                                    }}
+                                    onMouseEnter={(e) =>
+                                        (e.currentTarget.style.backgroundColor = "#5F6E5F")
+                                    }
+                                    onMouseLeave={(e) =>
+                                        (e.currentTarget.style.backgroundColor = "#7A8B7A")
+                                    }
+                                >
+                                    <Icon size={16} />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Navigation */}
+                    <div>
+                        <h4
+                            className="text-sm uppercase tracking-widest mb-6"
+                            style={{ color: "#7A8B7A" }}
+                        >
+                            Navigation
+                        </h4>
+
+                        <ul className="space-y-3">
+                            {["À propos", "Services", "Projets", "Collections", "Contact"].map(
+                                (item) => (
+                                    <li key={item}>
+                                        <a
+                                            href="#"
+                                            className="transition-colors duration-300 text-sm"
+                                            style={{ color: "#D8D3CC" }}
+                                            onMouseEnter={(e) =>
+                                                (e.currentTarget.style.color = "#7A8B7A")
+                                            }
+                                            onMouseLeave={(e) =>
+                                                (e.currentTarget.style.color = "#D8D3CC")
+                                            }
+                                        >
+                                            {item}
+                                        </a>
+                                    </li>
+                                )
+                            )}
+                        </ul>
+                    </div>
+
+                    {/* Collections */}
+                    <div>
+                        <h4
+                            className="text-sm uppercase tracking-widest mb-6"
+                            style={{ color: "#7A8B7A" }}
+                        >
+                            Collections
+                        </h4>
+
+                        <ul className="space-y-3">
+                            {[
+                                "Plaques Publicitaires",
+                                "Alucobond",
+                                "Décoration Intérieure",
+                                "Mobilier Design",
+                                "Signalétique",
+                            ].map((item) => (
+                                <li key={item}>
+                                    <a
+                                        href="#"
+                                        className="transition-colors duration-300 text-sm"
+                                        style={{ color: "#D8D3CC" }}
+                                        onMouseEnter={(e) =>
+                                            (e.currentTarget.style.color = "#7A8B7A")
+                                        }
+                                        onMouseLeave={(e) =>
+                                            (e.currentTarget.style.color = "#D8D3CC")
+                                        }
+                                    >
+                                        {item}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Card */}
+                    <div
+                        className="p-8"
+                        style={{
+                            backgroundColor: "rgba(255,255,255,0.04)",
+                            borderRadius: "20px",
+                        }}
+                    >
+                        <div className="space-y-5 text-sm">
+
+                            <div className="flex items-start gap-3">
+                                <MapPin size={18} style={{ color: "#7A8B7A" }} />
+                                <p style={{ color: "#D8D3CC" }}>
+                                    123 Avenue Design, <br />
+                                    Casablanca, Maroc
+                                </p>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <Mail size={18} style={{ color: "#7A8B7A" }} />
+                                <p style={{ color: "#D8D3CC" }}>
+                                    contact@mervi-store.com
+                                </p>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                <Phone size={18} style={{ color: "#7A8B7A" }} />
+                                <p style={{ color: "#D8D3CC" }}>
+                                    +212 6 00 00 00 00
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                {/* ───────────── Bottom Bar ───────────── */}
+                <div
+                    className="mt-16 pt-6 flex flex-col md:flex-row justify-between text-sm"
+                    style={{
+                        borderTop: "1px solid rgba(255,255,255,0.06)",
+                        color: "#D8D3CC",
+                    }}
+                >
+                    <p>© {new Date().getFullYear()} Mervi's Store</p>
+                    <p>Tous droits réservés</p>
+                </div>
+
+            </div>
+        </footer>
+    );
+}
