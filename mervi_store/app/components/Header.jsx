@@ -45,10 +45,10 @@ export default function Header() {
 
             <Link href="/cart" className="hover:underline text-center">
               <span className="hidden sm:inline">
-                My cart: {totalItems} item(s) – ${totalPrice.toFixed(2)}
+                My cart: {totalItems} item(s) – XAF{totalPrice.toFixed(2)}
               </span>
               <span className="sm:hidden">
-                {totalItems} – ${totalPrice.toFixed(2)}
+                {totalItems} – XAF{totalPrice.toFixed(2)}
               </span>
             </Link>
 

@@ -98,7 +98,7 @@ export default function CheckoutPage() {
                 <input type="radio" name="shipping" checked readOnly className="h-4 w-4 text-gray-900 focus:ring-gray-900" />
                 <span className="text-sm font-medium">International</span>
               </div>
-              <span className="text-sm font-semibold">$20.00</span>
+              <span className="text-sm font-semibold">XAF20.00</span>
             </div>
           </section>
 
@@ -167,7 +167,7 @@ export default function CheckoutPage() {
                 </div>
 
                 <p className="text-sm font-medium text-gray-900 whitespace-nowrap">
-                  ${(item.price * item.qty).toFixed(2)}
+                  XAF{(item.price * item.qty).toFixed(2)}
                 </p>
 
               </div>
@@ -180,18 +180,18 @@ export default function CheckoutPage() {
 
             <div className="flex justify-between text-gray-700">
               <span>Subtotal · {totalItems} items</span>
-              <span>${totalPrice.toFixed(2)}</span>
+              <span>XAF{totalPrice.toFixed(2)}</span>
             </div>
 
             <div className="flex justify-between text-gray-700">
               <span>Shipping</span>
-              <span>${shipping.toFixed(2)}</span>
+              <span>XAF{shipping.toFixed(2)}</span>
             </div>
 
             <div className="border-t border-gray-300 pt-3 flex justify-between font-semibold text-base text-gray-900">
               <span>Total</span>
               <span>
-                ${total.toFixed(2)}
+                XAF{total.toFixed(2)}
               </span>
             </div>
 

@@ -58,12 +58,12 @@ export default function FeaturedProducts() {
                                         className={`font-semibold text-[14px] ${product.oldPrice ? "text-[#7A8B7A]" : "text-gray-800"
                                             }`}
                                     >
-                                        ${product.price}.00
+                                        XAF{product.price}.00
                                     </span>
 
                                     {product.oldPrice && (
                                         <span className="line-through text-sm text-gray-400">
-                                            ${product.oldPrice}.00
+                                            XAF{product.oldPrice}.00
                                         </span>
                                     )}
                                 </div>

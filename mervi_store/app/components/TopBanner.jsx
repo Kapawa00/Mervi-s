@@ -1,5 +1,6 @@
 // components/TopBanner.jsx
 "use client";
+import Link from "next/link";
 
 export default function TopBanner() {
   return (
@@ -7,8 +8,8 @@ export default function TopBanner() {
       <div className="max-w-screen-xl mx-auto px-4 py-3 text-center md:px-8">
         <p className="font-medium text-white">
           Nouvelle collection disponible !{" "}
-          <a
-            href="#"
+          <Link
+            href="/categorie"
             className="font-semibold underline inline-flex items-center gap-x-1 transition-colors duration-150"
             style={{ color: "#E4ECE4" }}
             onMouseEnter={e => (e.currentTarget.style.color = "#F8F6F2")}
@@ -27,7 +28,7 @@ export default function TopBanner() {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </Link>
         </p>
       </div>
     </div>

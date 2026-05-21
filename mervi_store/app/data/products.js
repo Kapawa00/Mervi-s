@@ -10,34 +10,35 @@ export const products = [
       "/images/img1.png",
       "/images/img2.png",
     ],
-    description:
-      "Plaques publicitaires modernes et efficaces.",
-    type: "Plaques",
+    description: "Plaques publicitaires modernes et efficaces.",
+    category: "plaque publicitaire",
   },
 
   {
-    slug: "Panneau Publicitaire",
+    slug: "panneau-publicitaire",
     title: "Panneau Publicitaire",
     price: 60,
+    vendu: false,
     image: [
       "/images/img4.png",
       "/images/img7.png",
       "/images/img6.png",
     ],
     description: "Panneaux publicitaires modernes et efficaces.",
-    type: "Panneaux",
+    category: "panneaux publicitaire",
   },
 
   {
-    slug: "Alucobond Publicitaire",
+    slug: "alucobond-publicitaire",
     title: "Alucobond Publicitaire",
     price: 78,
+    vendu: false,
     image: [
       "/images/img8.png",
       "/images/img9.png",
       "/images/img10.png",
     ],
     description: "Alucobond publicitaire moderne et efficace.",
-    type: "Alucobond",
+    category: "alucobonds",
   },
 ];

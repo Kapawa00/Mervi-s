@@ -33,8 +33,10 @@ export default function SocialBar() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/..."
+            href="https://wa.me/237697025090"
             title="WhatsApp"
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors duration-150"
             style={socialStyle}
             onMouseEnter={e => (e.currentTarget.style.color = socialHover)}
@@ -45,8 +47,10 @@ export default function SocialBar() {
 
           {/* Facebook */}
           <a
-            href="https://facebook.com/..."
+            href="https://facebook.com/Mervi's"
             title="Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors duration-150"
             style={socialStyle}
             onMouseEnter={e => (e.currentTarget.style.color = socialHover)}
@@ -69,8 +73,10 @@ export default function SocialBar() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com/..."
+            href="https://instagram.com/sandra_merveille__"
             title="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors duration-150"
             style={socialStyle}
             onMouseEnter={e => (e.currentTarget.style.color = socialHover)}

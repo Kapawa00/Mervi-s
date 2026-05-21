@@ -3,10 +3,11 @@ import TopBanner from "@/app/components/TopBanner";
 import SocialBar from "@/app/components/SocialBar";
 import HeroSection from "@/app/components/HeroSection";
 import CTAHome1 from "@/app/components/CTAHome1";
-import CollectionPage from "@/app/collection/collection";
+import CollectionPage from "@/app/collection/page";
 import AboutPage from "@/app/A-propos/page";
 import FeaturedProducts from "@/app/ProduitDisponible/page";
 import Footer from "@/app/footer/page";
+import VideoSection from "@/app/components/VideoSection";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <CollectionPage />
       <AboutPage />
+      <VideoSection />
       <FeaturedProducts />
       <Footer />
     </>

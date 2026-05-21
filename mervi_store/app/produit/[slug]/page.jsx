@@ -47,7 +47,7 @@ export default function ProductPage() {
               </h2>
 
               <p className="text-[16px] mb-4">
-                ${product.price}.00
+                XAF{product.price}.00
               </p>
 
               <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -123,7 +123,7 @@ export default function ProductPage() {
                 </p>
 
                 <p className="text-[14px] text-gray-600 mt-1">
-                  ${item.price}.00
+                  XAF{item.price}.00
                 </p>
 
               </Link>

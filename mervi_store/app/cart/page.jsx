@@ -91,7 +91,7 @@ export default function CartPage() {
                       </button>
                     </div>
 
-                    <p className="mt-4">${item.price}.00</p>
+                    <p className="mt-4">XAF{item.price}.00</p>
 
                     <div className="mt-4 flex items-center gap-3">
                       <span>Qty:</span>
@@ -110,7 +110,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="text-left sm:text-right mt-4 font-semibold">
-                      Total: ${(item.price * item.qty).toFixed(2)}
+                      Total: XAF{(item.price * item.qty).toFixed(2)}
                     </div>
 
                   </div>
@@ -124,7 +124,7 @@ export default function CartPage() {
                   <div className="flex justify-between text-lg font-semibold mt-8">
                     <span>Subtotal</span>
                     <span>
-                      $
+                      XAF
                       {localCart
                         .reduce(
                           (sum, item) =>

@@ -1,7 +1,8 @@
 "use client";
 
 import { Mail, MapPin, Phone } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaW } from "react-icons/fa6";
 
 
 export default function Footer() {
@@ -34,10 +35,16 @@ export default function Footer() {
 
                         {/* Social Icons */}
                         <div className="flex gap-4 mt-6">
-                            {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
+                            {[
+                                { Icon: FaFacebookF, link: "https://facebook.com/Mervi's" },
+                                { Icon: FaWhatsapp, link: "https://wa.me/237697025090" },
+                                { Icon: FaInstagram, link: "https://instagram.com/sandra_merveille__" }
+                            ].map(({ Icon, link }, i) => (
                                 <a
                                     key={i}
-                                    href="#"
+                                    href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="p-2 transition-all duration-300"
                                     style={{
                                         backgroundColor: "#7A8B7A",
@@ -137,22 +144,22 @@ export default function Footer() {
                             <div className="flex items-start gap-3">
                                 <MapPin size={18} style={{ color: "#7A8B7A" }} />
                                 <p style={{ color: "#D8D3CC" }}>
-                                    123 Avenue Design, <br />
-                                    Casablanca, Maroc
+                                    Carrefour Ange Raphaël, <br />
+                                    Douala, Cameroun
                                 </p>
                             </div>
 
                             <div className="flex items-center gap-3">
                                 <Mail size={18} style={{ color: "#7A8B7A" }} />
                                 <p style={{ color: "#D8D3CC" }}>
-                                    contact@mervi-store.com
+                                    sniemedjie50@gmail.com
                                 </p>
                             </div>
 
                             <div className="flex items-center gap-3">
                                 <Phone size={18} style={{ color: "#7A8B7A" }} />
                                 <p style={{ color: "#D8D3CC" }}>
-                                    +212 6 00 00 00 00
+                                    +237 697 025 090
                                 </p>
                             </div>
 

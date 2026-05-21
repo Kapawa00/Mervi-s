@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const slides = [
   {
@@ -115,9 +116,9 @@ export default function HeroBanner() {
             </p>
 
             {/* Button */}
+            <Link href="/categorie">
             <div className="mt-8">
-              <a
-                href="#"
+              <button
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-all duration-300"
                 style={{
                   backgroundColor: "#7A8B7A",
@@ -125,45 +126,46 @@ export default function HeroBanner() {
                 }}
               >
                 Découvrir
-              </a>
+              </button>
             </div>
+            </Link>
           </motion.div>
         </AnimatePresence>
-               {/* ── Scroll down ── */}
+        {/* ── Scroll down ── */}
         <div className="absolute hidden transform -translate-x-1/2 lg:bottom-8 xl:bottom-12 left-1/2 lg:block">
-            <a
-                href="#"
-                role="button"
-                className="inline-flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full focus:outline-none"
-                style={{
-                    backgroundColor: "rgba(122,139,122,0.2)",
-                    border: "1px solid #7A8B7A",
-                    color: "#F8F6F2",
-                }}
-                onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = "#7A8B7A";
-                    e.currentTarget.style.color = "#F8F6F2";
-                }}
-                onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = "rgba(122,139,122,0.2)";
-                    e.currentTarget.style.color = "#F8F6F2";
-                }}
+          <a
+            href="#"
+            role="button"
+            className="inline-flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full focus:outline-none"
+            style={{
+              backgroundColor: "rgba(122,139,122,0.2)",
+              border: "1px solid #7A8B7A",
+              color: "#F8F6F2",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = "#7A8B7A";
+              e.currentTarget.style.color = "#F8F6F2";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = "rgba(122,139,122,0.2)";
+              e.currentTarget.style.color = "#F8F6F2";
+            }}
+          >
+            <svg
+              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-                <svg
-                    className="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                    />
-                </svg>
-            </a>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
