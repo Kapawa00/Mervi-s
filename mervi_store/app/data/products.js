@@ -1,7 +1,7 @@
 export const products = [
   {
-    slug: "arne-jacobsen-egg-chair-blue",
-    title: "Arne Jacobsen Egg Chair",
+    slug: "plaques-publicitaires",
+    title: "Plaques Publicitaires",
     price: 199,
     oldPrice: 220,
     vendu: true,
@@ -11,33 +11,33 @@ export const products = [
       "/images/img2.png",
     ],
     description:
-      "Chaise design iconique alliant confort et élégance.",
-    type: "Chairs",
+      "Plaques publicitaires modernes et efficaces.",
+    type: "Plaques",
   },
 
   {
-    slug: "attractive-round-chair",
-    title: "Attractive Round Chair",
+    slug: "Panneau Publicitaire",
+    title: "Panneau Publicitaire",
     price: 60,
     image: [
       "/images/img4.png",
       "/images/img7.png",
       "/images/img6.png",
     ],
-    description: "Fauteuil rond moderne et confortable.",
-    type: "Chairs",
+    description: "Panneaux publicitaires modernes et efficaces.",
+    type: "Panneaux",
   },
 
   {
-    slug: "spring-green-lounge-chair",
-    title: "Spring Green Lounge Chair",
+    slug: "Alucobond Publicitaire",
+    title: "Alucobond Publicitaire",
     price: 78,
     image: [
       "/images/img8.png",
       "/images/img9.png",
       "/images/img10.png",
     ],
-    description: "Fauteuil lounge vert élégant.",
-    type: "Chairs",
+    description: "Alucobond publicitaire moderne et efficace.",
+    type: "Alucobond",
   },
 ];
