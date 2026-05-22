@@ -6,9 +6,15 @@ const nextConfig: NextConfig = {
 
   // Si tu as des images dans ton projet (utile pour un e‑commerce)
   images: {
-    domains: [
-      "example.com", // remplace par ton domaine d’images
-      "images.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'example.com', // remplace par ton domaine d'images
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
       // ajoute tes CDN/images ici
     ],
   },
