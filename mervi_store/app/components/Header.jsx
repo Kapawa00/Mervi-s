@@ -4,7 +4,7 @@ import { Check, ShoppingCart } from "lucide-react";
 import { useCart } from "@/app/context/CartContext";
 
 export default function Header() {
-  const { totalItems, totalPrice, showPopup } = useCart();
+  const { totalItems, totalPrice } = useCart();
 
   return (
     <header className="bg-[#efefef] border-b border-[#dcdcdc]">
@@ -51,13 +51,6 @@ export default function Header() {
                 {totalItems} – XAF{totalPrice.toFixed(2)}
               </span>
             </Link>
-
-            {showPopup && (
-              <div className="absolute top-full right-0 mt-3 bg-green-600 text-white text-xs px-4 py-2 rounded shadow-lg animate-fadeIn flex items-center gap-1 whitespace-nowrap">
-                <Check size={14} /> Product added
-              </div>
-            )}
-
           </div>
         </div>
       </div>

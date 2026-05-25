@@ -91,40 +91,38 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* STATS */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+{/* STATS */}
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-20">
+  {[
+    { number: "5197K", label: "D'abonnés" },
+    { number: "298", label: "Clients satisfaits" },
+    { number: "2000+", label: "Installations complétées" },
+    { number: "599", label: "Collaborations professionnelles" },
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="p-4 md:p-8 transition-all duration-300"
+      style={{
+        border: "1px solid #D8D3CC",
+        backgroundColor: "#FFFFFF",
+      }}
+    >
+      <h2
+        className="text-2xl sm:text-3xl md:text-5xl font-light"
+        style={{ color: "#7A8B7A" }}
+      >
+        <Counter value={item.number} />
+      </h2>
 
-          {[
-            { number: "5197K", label: "D'abonnés" },
-            { number: "298", label: "Clients satisfaits" },
-            { number: "2000+", label: "Installations complétées" },
-            { number: "599", label: "Collaborations professionnelles" },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="p-8 transition-all duration-300"
-              style={{
-                border: "1px solid #D8D3CC",
-                backgroundColor: "#FFFFFF",
-              }}
-            >
-              <h2
-                className="text-4xl md:text-5xl font-light"
-                style={{ color: "#7A8B7A" }}
-              >
-                <Counter value={item.number} />
-              </h2>
-
-              <p
-                className="mt-3 text-sm uppercase tracking-widest"
-                style={{ color: "#6B6B6B" }}
-              >
-                {item.label}
-              </p>
-            </div>
-          ))}
-
-        </div>
+      <p
+        className="mt-3 text-[10px] sm:text-xs uppercase tracking-widest"
+        style={{ color: "#6B6B6B" }}
+      >
+        {item.label}
+      </p>
+    </div>
+  ))}
+</div>
 
       </div>
     </section>

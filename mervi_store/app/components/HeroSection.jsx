@@ -7,22 +7,19 @@ import Link from "next/link";
 
 const slides = [
   {
-    image:
-      "/images/hero4.jpeg",
+    image: "/images/hero4.jpeg",
     title1: "Plaques",
     title2: "Publicitaires",
     description: "Des solutions visuelles modernes et impactantes.",
   },
   {
-    image:
-      "/images/hero2.jpeg",
+    image: "/images/hero2.jpeg",
     title1: "Alucobond",
     title2: "Premium",
     description: "Un rendu haut de gamme pour votre façade.",
   },
   {
-    image:
-      "/images/hero1.png",
+    image: "/images/hero1.png",
     title1: "Décoration",
     title2: "Intérieure",
     description: "Une esthétique élégante et professionnelle.",
@@ -39,6 +36,15 @@ export default function HeroBanner() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  // Smooth scroll handler
+  const handleScrollDown = (e) => {
+    e.preventDefault();
+    document.getElementById("next-section")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <div className="relative h-screen overflow-hidden">
@@ -58,7 +64,7 @@ export default function HeroBanner() {
             height={1080}
             src={slides[index].image}
             alt=""
-            className="object-fit w-full h-full"
+            className="object-cover w-full h-full"
           />
 
           {/* Overlay dark charcoal */}
@@ -116,56 +122,69 @@ export default function HeroBanner() {
             </p>
 
             {/* Button */}
-            <Link href="/categorie">
-            <div className="mt-8">
-              <button
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-all duration-300"
-                style={{
-                  backgroundColor: "#7A8B7A",
-                  color: "#F8F6F2",
-                }}
-              >
-                Découvrir
-              </button>
-            </div>
+            <Link href="/toutproduits">
+              <div className="mt-8">
+                <button
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-all duration-300"
+                  style={{
+                    backgroundColor: "#7A8B7A",
+                    color: "#F8F6F2",
+                  }}
+                >
+                  Découvrir
+                </button>
+              </div>
             </Link>
           </motion.div>
         </AnimatePresence>
-        {/* ── Scroll down ── */}
+
+        {/* ── Scroll Down Button ── */}
         <div className="absolute hidden transform -translate-x-1/2 lg:bottom-8 xl:bottom-12 left-1/2 lg:block">
-          <a
-            href="#"
-            role="button"
-            className="inline-flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full focus:outline-none"
-            style={{
-              backgroundColor: "rgba(122,139,122,0.2)",
-              border: "1px solid #7A8B7A",
-              color: "#F8F6F2",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = "#7A8B7A";
-              e.currentTarget.style.color = "#F8F6F2";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.backgroundColor = "rgba(122,139,122,0.2)";
-              e.currentTarget.style.color = "#F8F6F2";
+          {/* Bounce animation wrapper */}
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
           >
-            <svg
-              className="w-5 h-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <a
+              href="#next-section"
+              role="button"
+              onClick={handleScrollDown}
+              aria-label="Scroll to next section"
+              className="inline-flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full focus:outline-none"
+              style={{
+                backgroundColor: "rgba(122,139,122,0.2)",
+                border: "1px solid #7A8B7A",
+                color: "#F8F6F2",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.backgroundColor = "#7A8B7A";
+                e.currentTarget.style.color = "#F8F6F2";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.backgroundColor = "rgba(122,139,122,0.2)";
+                e.currentTarget.style.color = "#F8F6F2";
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </a>
+              <svg
+                className="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </a>
+          </motion.div>
         </div>
       </div>
     </div>

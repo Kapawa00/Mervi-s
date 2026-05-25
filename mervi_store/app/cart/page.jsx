@@ -27,9 +27,9 @@ export default function CartPage() {
     updateCart(localCart);
   };
 
-  const handleCheckout = () => {
-    router.push("/checkout");
-  };
+  // const handleCheckout = () => {
+  //   router.push("/checkout");
+  // };
 
   return (
     <>
@@ -144,12 +144,12 @@ export default function CartPage() {
                       Update cart
                     </button>
 
-                    <button
+                    {/* <button
                       onClick={handleCheckout}
                       className="bg-[#7A8B7A] text-white px-6 py-2 w-full sm:w-auto"
                     >
                       Check out
-                    </button>
+                    </button> */}
                   </div>
                 </>
               )}

@@ -3,24 +3,25 @@
 
 import { Heart, Phone, Search, ShoppingBag, User } from "lucide-react";
 
-const socialStyle  = { color: "#7A8B7A" };
-const socialHover  = "#5F6E5F";
+const socialStyle = { color: "#7A8B7A" };
+const socialHover = "#5F6E5F";
 const socialDefault = "#7A8B7A";
 
-const iconStyle    = { color: "#6B6B6B" };
-const iconHover    = "#5F6E5F";
-const iconDefault  = "#6B6B6B";
+const iconStyle = { color: "#6B6B6B" };
+const iconHover = "#5F6E5F";
+const iconDefault = "#6B6B6B";
 
 const utilIcons = [
-  { Icon: Search,      label: "Recherche" },
-  { Icon: Heart,       label: "Favoris"   },
-  { Icon: User,        label: "Compte"    },
-  { Icon: ShoppingBag, label: "Panier"    },
+  { Icon: Search, label: "Recherche" },
+  { Icon: Heart, label: "Favoris" },
+  { Icon: User, label: "Compte" },
+  { Icon: ShoppingBag, label: "Panier" },
 ];
 
 export default function SocialBar() {
   return (
     <div
+      className="sticky top-0 z-[100]"
       style={{
         backgroundColor: "#EFEAE3",
         borderBottom: "1px solid #D8D3CC",

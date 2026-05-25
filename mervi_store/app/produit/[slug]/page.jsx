@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 import ProductGallery from "../../components/ProductGallery";
 import Sidebar from "../../components/Sidebar";
 import { useCart } from "../../context/CartContext";
+import StatusModal from "../../components/StatusModal"; // adjust path if needed
 
 export default function ProductPage() {
   const { slug } = useParams();
@@ -17,9 +18,35 @@ export default function ProductPage() {
   const { addToCart } = useCart();
   const [qty, setQty] = useState(1);
 
+  const [modal, setModal] = useState({
+    isOpen: false,
+    type: "success",
+    title: "",
+    message: "",
+  });
+
   if (!product) {
     return <div className="p-20">Produit introuvable</div>;
   }
+
+  const handleAddToCart = () => {
+    try {
+      addToCart(product, qty);
+      setModal({
+        isOpen: true,
+        type: "success",
+        title: "Ajouté au panier !",
+        message: `${qty}x "${product.title}" a été ajouté à votre panier.`,
+      });
+    } catch (error) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        title: "Erreur",
+        message: "Impossible d'ajouter le produit au panier.",
+      });
+    }
+  };
 
   return (
     <>
@@ -29,7 +56,7 @@ export default function ProductPage() {
       <div className="bg-[#f3f3f3] py-10">
         <div className="max-w-[1200px] mx-auto px-4">
 
-          {/* ✅ Responsive Grid */}
+          {/* Responsive Grid */}
           <div className="grid gap-8 
                           grid-cols-1 
                           md:grid-cols-2 
@@ -59,10 +86,27 @@ export default function ProductPage() {
                   onChange={(e) => setQty(Number(e.target.value))}
                   className="w-14 h-8 border border-[#dcdcdc] text-center"
                 />
+
+                {/* Add to Cart button with Plus icon */}
                 <button
-                  onClick={() => addToCart(product, qty)}
-                  className="bg-[#7A8B7A] text-white px-6 h-8 text-sm w-full sm:w-auto"
+                  onClick={handleAddToCart}
+                  className="bg-[#7A8B7A] hover:bg-[#5F6E5F] text-white px-6 h-10 text-sm w-full sm:w-auto flex items-center justify-center gap-2 transition duration-300"
                 >
+                  {/* Plus Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
                   Add to cart
                 </button>
               </div>
@@ -91,7 +135,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* ✅ RELATED PRODUCTS SECTION */}
+      {/* RELATED PRODUCTS SECTION */}
       <div className="bg-[#f3f3f3] py-12">
         <div className="max-w-[1200px] mx-auto px-4">
 
@@ -106,7 +150,6 @@ export default function ProductPage() {
                 href={`/produit/${item.slug}`}
                 className="group"
               >
-
                 {/* Image */}
                 <div className="relative w-full h-[260px] bg-white border border-[#dcdcdc] overflow-hidden">
                   <Image
@@ -125,13 +168,21 @@ export default function ProductPage() {
                 <p className="text-[14px] text-gray-600 mt-1">
                   XAF{item.price}.00
                 </p>
-
               </Link>
             ))}
 
           </div>
         </div>
       </div>
+
+      {/* Status Modal */}
+      <StatusModal
+        type={modal.type}
+        title={modal.title}
+        message={modal.message}
+        isOpen={modal.isOpen}
+        onClose={() => setModal({ ...modal, isOpen: false })}
+      />
     </>
   );
 }

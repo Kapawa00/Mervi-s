@@ -6,9 +6,11 @@ export const products = [
     oldPrice: 220,
     vendu: true,
     image: [
-      "/images/img3.png",
       "/images/img1.png",
+      "/images/img3.png",
       "/images/img2.png",
+      "/images/img14.png",
+
     ],
     description: "Plaques publicitaires modernes et efficaces.",
     category: "plaque publicitaire",
@@ -20,9 +22,10 @@ export const products = [
     price: 60,
     vendu: false,
     image: [
+      "/images/img21.png",
+      "/images/img30.png",
       "/images/img4.png",
-      "/images/img7.png",
-      "/images/img6.png",
+      "/images/img32.png",
     ],
     description: "Panneaux publicitaires modernes et efficaces.",
     category: "panneaux publicitaire",
@@ -36,9 +39,23 @@ export const products = [
     image: [
       "/images/img8.png",
       "/images/img9.png",
-      "/images/img10.png",
+      "/images/img27.png",
     ],
     description: "Alucobond publicitaire moderne et efficace.",
     category: "alucobonds",
+  },
+
+  {
+    slug: "decoration-interieure",
+    title: "Decoration Interieure",
+    price: 99,
+    vendu: false,
+    image: [
+      "/images/img28.png",
+      "/images/img29.png",
+      "/images/img30.png",
+    ],
+    description: "Decoration interieure moderne et efficace.",
+    category: "decoration interieure",
   },
 ];

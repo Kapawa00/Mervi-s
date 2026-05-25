@@ -1,12 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
 export default function VideoSection() {
   const scrollRef = useRef(null);
-  const [activeVideo, setActiveVideo] = useState(null);
+  const modalVideoRef = useRef(null);
+
+  const [activeVideoIndex, setActiveVideoIndex] = useState(null);
 
   const videos = [
     { id: 1, src: "/videos/video1.mp4" },
@@ -25,14 +27,86 @@ export default function VideoSection() {
     });
   };
 
+  const openModalAt = (index) => {
+    setActiveVideoIndex(index);
+  };
+
+  const closeModal = () => {
+    // Stop playback when closing
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+    setActiveVideoIndex(null);
+  };
+
+  const goPrev = () => {
+    if (activeVideoIndex === null) return;
+
+    const nextIndex =
+      (activeVideoIndex - 1 + videos.length) % videos.length;
+
+    // Pause current before switching
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+    }
+
+    setActiveVideoIndex(nextIndex);
+  };
+
+  const goNext = () => {
+    if (activeVideoIndex === null) return;
+
+    const nextIndex = (activeVideoIndex + 1) % videos.length;
+
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+    }
+
+    setActiveVideoIndex(nextIndex);
+  };
+
+  // Auto-play the modal video whenever the index changes
+  useEffect(() => {
+    if (!modalVideoRef.current) return;
+
+    // Attempt autoplay after source change
+    const v = modalVideoRef.current;
+
+    const playAfterLoad = () => {
+      v.play().catch(() => {
+        // If autoplay fails (e.g., browser policy), keep controls visible
+      });
+    };
+
+    v.addEventListener("loadeddata", playAfterLoad, { once: true });
+
+    return () => {
+      v.removeEventListener("loadeddata", playAfterLoad);
+    };
+  }, [activeVideoIndex]);
+
+  // Keyboard navigation inside modal
+  useEffect(() => {
+    if (activeVideoIndex === null) return;
+
+    const onKey = (e) => {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+
+    window.addEventListener("keydown", onKey);
+
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeVideoIndex]);
+
   return (
     <section
       className="py-24 relative"
       style={{ backgroundColor: "#F8F6F2" }}
     >
       <div className="max-w-7xl mx-auto px-6 relative">
-
-        {/* Title */}
         <h2
           className="text-3xl font-light mb-12"
           style={{ color: "#2B2B2B" }}
@@ -40,35 +114,60 @@ export default function VideoSection() {
           Nos Réalisations
         </h2>
 
-        {/* LEFT ARROW */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md w-12 h-12 rounded-full flex items-center justify-center"
-          style={{ border: "1px solid #ECE7E0" }}
-        >
-          <ChevronLeft size={22} color="#2B2B2B" />
-        </button>
+{/* LEFT ARROW */}
+<button
+  onClick={() => scroll("left")}
+  aria-label="Scroll left"
+  className="
+    absolute 
+    left-2 md:left-0 
+    top-1/2 
+    -translate-y-1/2 
+    z-20 
+    bg-white 
+    shadow-md 
+    w-10 h-10 md:w-12 md:h-12 
+    rounded-full 
+    flex items-center justify-center
+  "
+  style={{ border: "1px solid #ECE7E0" }}
+>
+  <ChevronLeft size={22} color="#2B2B2B" />
+</button>
 
-        {/* RIGHT ARROW */}
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md w-12 h-12 rounded-full flex items-center justify-center"
-          style={{ border: "1px solid #ECE7E0" }}
-        >
-          <ChevronRight size={22} color="#2B2B2B" />
-        </button>
+{/* RIGHT ARROW */}
+<button
+  onClick={() => scroll('right')}
+  aria-label='Scroll right'
+  className="
+    absolute 
+    right-2 md:right-0 
+    top-1/2 
+    -translate-y-1/2 
+    z-20 
+    bg-white 
+    shadow-md 
+    w-10 h-10 md:w-12 md:h-12 
+    rounded-full 
+    flex items-center justify-center
+  "
+  style={{ border: '1px solid #ECE7E0' }}
+>
+  <ChevronRight size={22} color='#2B2B2B' />
+</button>
 
         {/* VIDEO CARDS */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12"
         >
-          {videos.map((video) => (
+          {videos.map((video, idx) => (
             <div
               key={video.id}
               className="relative min-w-[300px] h-[220px] bg-black rounded-xl overflow-hidden cursor-pointer group"
-              onClick={() => setActiveVideo(video.src)}
+              onClick={() => openModalAt(idx)}
             >
+              {/* Auto-playing muted previews */}
               <video
                 src={video.src}
                 autoPlay
@@ -93,9 +192,9 @@ export default function VideoSection() {
         </div>
       </div>
 
-      {/* ✅ LARGE MODAL */}
+      {/* MODAL WITH NAV */}
       <AnimatePresence>
-        {activeVideo && (
+        {activeVideoIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -111,15 +210,36 @@ export default function VideoSection() {
             >
               {/* Close Button */}
               <button
-                onClick={() => setActiveVideo(null)}
+                onClick={closeModal}
+                aria-label="Close"
                 className="absolute -top-12 right-0 text-white"
               >
                 <X size={28} />
               </button>
 
+              {/* Left nav in modal */}
+              <button
+                onClick={goPrev}
+                aria-label="Previous video"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center"
+              >
+                <ChevronLeft size={22} color="#2B2B2B" />
+              </button>
+
+              {/* Right nav in modal */}
+              <button
+                onClick={goNext}
+                aria-label="Next video"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center"
+              >
+                <ChevronRight size={22} color="#2B2B2B" />
+              </button>
+
               {/* Video */}
               <video
-                src={activeVideo}
+                key={videos[activeVideoIndex].src} // force reload on index change
+                ref={modalVideoRef}
+                src={videos[activeVideoIndex].src}
                 controls
                 autoPlay
                 className="w-full h-[80vh] object-contain rounded-xl bg-black"
