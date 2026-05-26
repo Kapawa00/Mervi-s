@@ -18,7 +18,7 @@ const collections = [
   },
   {
     title: "Plaques publicitaires",
-    image: "/images/img3yy.png",
+    image: "/images/img3.png",
   },
 ];
 
