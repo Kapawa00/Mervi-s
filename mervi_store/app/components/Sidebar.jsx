@@ -94,12 +94,12 @@ export default function Sidebar({ products }) {
                   {item.title}
                 </p>
 
-                <p
+                {/* <p
                   className="text-[14px] mt-2"
                   style={{ color: "#7A8B7A" }}
                 >
                   {item.price}XAF
-                </p>
+                </p> */}
               </div>
 
             </Link>

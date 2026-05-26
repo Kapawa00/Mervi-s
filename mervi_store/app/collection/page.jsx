@@ -14,11 +14,11 @@ const collections = [
   },
   {
     title: "Décoration intérieure",
-    image: "/images/WhatsApp Image 2026-05-21 at 9.30.43 AM (2).jpeg",
+    image: "/images/img29.png",
   },
   {
     title: "Plaques publicitaires",
-    image: "/images/WhatsApp Image 2026-05-21 at 9.30.55 AM (5).jpeg",
+    image: "/images/img3yy.png",
   },
 ];
 

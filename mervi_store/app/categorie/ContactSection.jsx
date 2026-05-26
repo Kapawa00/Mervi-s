@@ -123,7 +123,8 @@ export default function ContactSection() {
                     value={product.title}
                     style={{ color: "#2B2B2B" }}
                   >
-                    {product.title} — XAF{product.price}
+                    {/* {product.title} — XAF{product.price} */}
+                    {product.title}
                   </option>
                 ))}
               </select>

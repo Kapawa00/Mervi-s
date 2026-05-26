@@ -2,9 +2,6 @@ export const products = [
   {
     slug: "plaques-publicitaires",
     title: "Plaques Publicitaires",
-    price: 199,
-    oldPrice: 220,
-    vendu: true,
     image: [
       "/images/img1.png",
       "/images/img3.png",
@@ -19,8 +16,6 @@ export const products = [
   {
     slug: "panneau-publicitaire",
     title: "Panneau Publicitaire",
-    price: 60,
-    vendu: false,
     image: [
       "/images/img21.png",
       "/images/img30.png",
@@ -34,8 +29,6 @@ export const products = [
   {
     slug: "alucobond-publicitaire",
     title: "Alucobond Publicitaire",
-    price: 78,
-    vendu: false,
     image: [
       "/images/img8.png",
       "/images/img9.png",
@@ -48,8 +41,6 @@ export const products = [
   {
     slug: "decoration-interieure",
     title: "Decoration Interieure",
-    price: 99,
-    vendu: false,
     image: [
       "/images/img28.png",
       "/images/img29.png",

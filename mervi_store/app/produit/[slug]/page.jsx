@@ -73,9 +73,9 @@ export default function ProductPage() {
                 {product.title}
               </h2>
 
-              <p className="text-[16px] mb-4">
+              {/* <p className="text-[16px] mb-4">
                 XAF{product.price}.00
-              </p>
+              </p> */}
 
               <div className="flex flex-wrap items-center gap-4 mb-6">
                 <span className="text-sm">Qty:</span>
@@ -165,9 +165,9 @@ export default function ProductPage() {
                   {item.title}
                 </p>
 
-                <p className="text-[14px] text-gray-600 mt-1">
+                {/* <p className="text-[14px] text-gray-600 mt-1">
                   XAF{item.price}.00
-                </p>
+                </p> */}
               </Link>
             ))}
 

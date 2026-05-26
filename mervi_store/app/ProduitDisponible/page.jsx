@@ -53,7 +53,7 @@ export default function FeaturedProducts() {
                                     {product.title}
                                 </h3>
 
-                                <div className="mt-2 flex items-center gap-2">
+                                {/* <div className="mt-2 flex items-center gap-2">
                                     <span
                                         className={`font-semibold text-[14px] ${product.oldPrice ? "text-[#7A8B7A]" : "text-gray-800"
                                             }`}
@@ -66,7 +66,7 @@ export default function FeaturedProducts() {
                                             XAF{product.oldPrice}.00
                                         </span>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
 
                         </Link>

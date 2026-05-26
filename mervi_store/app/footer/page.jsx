@@ -3,6 +3,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
+
 export default function Footer() {
   return (
     <footer

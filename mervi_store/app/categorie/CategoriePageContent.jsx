@@ -121,7 +121,7 @@ export default function CategoriePageContent() {
                                     {product.title}
                                 </h3>
 
-                                <div className="mt-2 flex items-center gap-2">
+                                {/* <div className="mt-2 flex items-center gap-2">
                                     <span
                                         className={`font-semibold text-[14px] ${product.oldPrice ? "text-[#7A8B7A]" : "text-[#2B2B2B]"
                                             }`}
@@ -134,7 +134,7 @@ export default function CategoriePageContent() {
                                             {product.oldPrice}XAF
                                         </span>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
                         </Link>
                     ))}
@@ -179,7 +179,7 @@ export default function CategoriePageContent() {
                                         {product.title}
                                     </h3>
 
-                                    <div className="mt-2 flex items-center gap-2">
+                                    {/* <div className="mt-2 flex items-center gap-2">
                                         <span
                                             className={`font-semibold text-[14px] ${product.oldPrice ? "text-[#7A8B7A]" : "text-gray-800"
                                                 }`}
@@ -192,7 +192,7 @@ export default function CategoriePageContent() {
                                                 XAF{product.oldPrice}.00
                                             </span>
                                         )}
-                                    </div>
+                                    </div> */}
                                 </div>
                             </Link>
                         ))}
